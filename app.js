@@ -109,6 +109,12 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
     var status = 200;
     var fileName = "./JSONs/hello.json";
+    if (req.body.name && typeof req.body.name !== 'undefined') {
+
+    } else {
+        status = 400;
+        fileName = "./JSONs/requestError.json";
+    }
     sendResponse(fileName, req, res, status);
 });
 
